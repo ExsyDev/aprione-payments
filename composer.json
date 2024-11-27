@@ -1,0 +1,13 @@
+{
+    "name": "exsydev/apirone-payments",
+    "type": "drupal-module",
+    "description": "A crypto payment gateway for Drupal Commerce.",
+    "keywords": ["drupal", "payment", "commerce"],
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "apirone/apirone-sdk-php": "^1.1",
+        "drupal/commerce": "^3.0"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

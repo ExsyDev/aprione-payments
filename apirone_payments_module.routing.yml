@@ -1,0 +1,7 @@
+#apirone_payments.payment_callback:
+#  path: '/payment/callback'
+#  defaults:
+#    _controller: 'Drupal\apirone_payments\Controller\PaymentController::callback'
+#    _title: 'Payment Callback'
+#  requirements:
+#    _permission: 'access content'

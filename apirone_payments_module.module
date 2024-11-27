@@ -1,0 +1,28 @@
+<?php
+
+/**
+ * @file
+ * Contains hook implementations for the Apirone Payments module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_FORM_ID_alter() to add a currency select field to the checkout form.
+ */
+function apirone_payments_module_form_commerce_checkout_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Get the available currencies from the payment gateway configuration.
+  $payment_gateway = \Drupal::service('plugin.manager.commerce_payment.gateway')->createInstance('apirone_payment_gateway');
+  $available_currencies = $payment_gateway->getAvailableCurrencies();
+
+  $form['payment']['com_currency'] = [
+    '#type' => 'select',
+    '#title' => t('Select Currency'),
+    '#options' => $available_currencies,
+    '#default_value' => 'BTC', // Default currency
+    '#required' => TRUE,
+    '#description' => t('Choose your preferred currency for payment.'),
+  ];
+}
+
+
